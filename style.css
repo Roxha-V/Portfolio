@@ -1,6 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
 
+/* el tamaño de las fuentes van a estar sujetas a los breakpoints(punto de quiebre donde
+se genera un cambio de tamaño segun el display a donde se presente la aplicacion) de media-querys- 
+breakpoints basados en el ancho de la pantalla: desktop 1920 / small notebook 1366px / tablet 768px / mobile large 426px */
+
+/* aca se van a definir variables*/
+
+:root {
+  --fuente-base: 16px;
+  --desktop: 1920px;
+  --small-notebook: 1366px;
+  --tablet: 768px;
+  --mobile-large: 426px;
+}
+/* se utilizan las media querys para definir los anchos max y min que redimensionaran la aplicacion*/
+/*en este ej se usara mx-width para lograr aplicar reglas a pantallas con ancho menor o = a 768px*/
+
+@media all and (max-width: var(--tablet)) {
+  body {
+    background-color: #ff3300;
+  }
+  :root {
+    --fuente-base: 10px;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,9 +37,9 @@
 html,
 body {
   font-family: JetBrains Mono, Outfit;
-  font-size: 16px;
-  width: 1920px;
-  height: 1080px;
+  font-size: var(--fuente-base);
+  width: 100%;
+  height: 100%;
 }
 
 /*menu style*/
@@ -52,7 +77,7 @@ body {
 .menu a {
   text-decoration: none;
   color: #ff3300;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-family: JetBrains Mono;
 }
 
@@ -109,7 +134,7 @@ aside img {
 .home-tittle span {
   color: #e5bc68;
   font-family: Outfit;
-  font-size: 56px;
+  font-size: 3.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -118,7 +143,7 @@ aside img {
 }
 
 .home-tittle span:hover {
-  font-size: 76px;
+  font-size: 4.75rem;
   text-shadow: 11px -2px 7px rgba(15, 10, 10, 0.25);
 }
 
@@ -156,7 +181,7 @@ aside img {
   display: grid;
   grid-template-rows: 50px, 50px, 50px;
   grid-template-columns:auto
-  height: 1920px;
+  height: 120rem;
 */
 
 .my-skills-container {
