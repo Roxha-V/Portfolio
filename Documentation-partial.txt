@@ -1,0 +1,55 @@
+Documento de Proyecto: Portafolio Personal
+
+- D1: Propósito - P1
+
+El propósito principal de este proyecto de portafolio personal es crear un espacio en línea que me permita presentar mis habilidades y trabajos como desarrolladora web front-end. A través de mi portafolio, deseo mostrar mi creatividad, habilidades técnicas y capacidad para diseñar y desarrollar interfaces web atractivas y funcionales. Este portafolio servirá como una herramienta para que los posibles empleadores, colegas y otras personas interesadas puedan conocerme y evaluar mi experiencia en el campo del desarrollo web.
+
+- D2: Visualización de Funcionamiento - P2
+
+Mi portafolio personal consistirá en varias secciones, incluyendo:
+
+Inicio: Una introducción breve sobre mí y mis objetivos como desarrolladora web.
+
+Sobre Mí: Detalles sobre mi formación, experiencia y habilidades técnicas.
+
+Proyectos: Una galería de proyectos destacados, cada uno con una descripción, capturas de pantalla y enlaces a las demostraciones en vivo y al código fuente en GitHub.
+
+Habilidades: Enumeración de las tecnologías y habilidades que poseo en el campo del desarrollo web.
+
+Contacto: Información de contacto para que los interesados puedan comunicarse conmigo.
+
+- D3: Fuentes de Inspiración - P3
+
+Algunas de las fuentes de inspiración para este proyecto incluyen:
+
+Portafolios en Línea de Profesionales: He explorado portafolios en línea de otros desarrolladores web y profesionales creativos para obtener ideas sobre la presentación, diseño y estructura del contenido.
+
+Diseños Web Modernos: Me he inspirado en los diseños web actuales y las tendencias de diseño para crear una apariencia visualmente atractiva y moderna para mi portafolio.
+
+Recursos de Aprendizaje en Línea: He utilizado tutoriales, cursos en línea y recursos educativos para aprender y aplicar técnicas de diseño web, desarrollo front-end y programación JavaScript.
+
+Comunidad de Desarrolladores: He interactuado con la comunidad en línea de desarrolladores web a través de foros, grupos de redes sociales y plataformas de colaboración para obtener consejos y compartir ideas.
+
+- D4: Tecnologías Utilizadas - P4 (Opcional)
+
+En la creación de mi portafolio, he utilizado las siguientes tecnologías:
+
+HTML5: Estructura y marcado de contenido.
+CSS3: Estilización y diseño de la interfaz.
+JavaScript: Interactividad y dinamismo en la página.
+Frameworks CSS (por ejemplo, Bootstrap): Para una apariencia y diseño responsivos.
+Git y GitHub: Control de versiones y colaboración en el desarrollo.
+Herramientas de Diseño (opcional): Adobe XD, Figma, u otras herramientas para crear prototipos y diseños.
+- D5: Resultados y Futuras Mejoras - P5 (Opcional)
+
+En el futuro, planeo seguir mejorando mi portafolio personal al:
+
+Agregar más proyectos a medida que continúo desarrollando mis habilidades.
+Mejorar la optimización para dispositivos móviles y tabletas.
+Explorar animaciones y efectos interactivos más avanzados.
+Integrar un blog para compartir mis experiencias y conocimientos.
+- D6: Conclusiones - P6 (Opcional)
+
+En conclusión, este proyecto de portafolio personal ha sido una valiosa oportunidad para aplicar mis habilidades de desarrollo web front-end y crear una presencia en línea que refleje mi identidad profesional. A través de este portafolio, espero abrir puertas a oportunidades laborales y colaboraciones en el campo del desarrollo web.
+
+¡Espero que estos puntos te ayuden a crear una documentación sólida para tu proyecto de portafolio personal! Recuerda personalizar cada sección de acuerdo con tus propias experiencias y logros. ¡Buena suerte con tu desarrollo web!

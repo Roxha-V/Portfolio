@@ -1,152 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Valverde, Rocio - Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Valverde, Rocio - Portfolio</title>
+<link rel="stylesheet" href="style.css" />
+</head>
 
-  <body>
- <!--
-    <header>
-      <h1>I<span style="color: white"
-          >.<span style="color: #e06c75">am</span>.</span
-        ><span style="color: #61afef">Rocio</span>("
-      </h1>
-      <div class="string">
-        <h1 class="greeting en">Hello World!</h1>
-        <h1 class="greeting es">¡Hola Mundo!</h1>
-        <h1 class="greeting de">Hallo Welt!</h1>
-        <h1 class="greeting it">Ciao Mondo!</h1>
-      </div>
-      <h1 class="closure">");</h1>
-    </header> 
-  -->
+<body>
+<script src="main.js"></script>
 
-    <div class="menu-container">
-      <nav class="menu">
-        <ul>
-          <li><a href="#home">HOME</a></li>
-          <li><a href="#my-skills"> MY SKILLS </a></li>
-          <li><a href="#my-projects">MY PROJECTS</a></li>
-          <li><a href="#contact">CONTACT ME</a></li>
-        </ul>
-      </nav>
-    </div>
 
-    <section id="home">
-  <div class="home-container">
-          <aside class="media-icons">
-            <img class="cv-icon" src="images/cv icon.png" alt="Curriculum">
-            <img class="github-icon" src="images/github icon.png" alt="GitHub">
-            <img class="linkedin-icon" src="images/linkedin icon.png"
-              alt="Linkedin">
+<!-- Esta porcion de codigo se encuentra comentada debido a que se quiere agregar una animacion pero una vez finalizado el resto del portfolio//
+This portion of code is commented because you want to add an animation but once the rest of the portfolio is finished
+
+
+<header>
+<h1>I<span style="color: white"
+>.<span style="color: #e06c75">am</span>.</span
+><span style="color: #61afef">Rocio</span>("
+</h1>
+<div class="string">
+<h1 class="greeting en">Hello World!</h1>
+<h1 class="greeting es">¡Hola Mundo!</h1>
+<h1 class="greeting de">Hallo Welt!</h1>
+<h1 class="greeting it">Ciao Mondo!</h1>
+</div>
+<h1 class="closure">");</h1>
+</header>
+-->
+
+
+<!-- Navigation bar structure -->
+
+
+
+
+<div class="container">
+<nav class="main-nav">
+<ul class="main-nav__list">
+<li class="main-nav__item">
+<a href="#home">HOME</a>
+</li>
+<li class="main-nav__item">
+<a href="#my-skills"> MY SKILLS </a>
+</li>
+<li class="main-nav__item">
+<a href="#my-projects">MY PROJECTS</a>
+</li>
+<li class="main-nav__item">
+<a href="#contact">CONTACT ME</a>
+</li>
+</ul>
+</nav>
+</div>
+
+
+<section id="home">
+    <div class="home-container">
+          <aside class="sidebar">
+              <img class="media-icons" src="images/cv icon.png" alt="Curriculum Vitae">
+              <img class="media-icons" src="images/github icon.png" alt="GitHub">
+              <img class="media-icons" src="images/linkedin icon.png" alt="Linkedin">
           </aside>
+        <div id="home-article">
+          <h2 class="tittles-text">Hi! I am <span class="color-primary size-3xl">Rocio</span></h2>
+          <p class="paragraphs-text">
+            Hello You! My name is Rocio Valverde and this is my portfolio. <br>
+            I consider myself a happy, creative, organized and responsible person. I really like working in a team and learning new things all the time.<br>
+            I think both things allow me to cheer myself up and face different challenges. In my spare time, I like to be outdoors, practice Tai-chi and be with people I love.<br>
+            I am trainee in Front end Web Development, so I create this page to upload my projects and show them to the world.
+            Thanks for watching!
+  <!--- saludo en español= Hola ! mi nombre es Rocio y este es mi portfolio. Me considero una persona alegre, creativa, organizada y responsable.
+  Me gusta mucho trabajar en equipo y aprender cosas nuevas todo el tiempo. Creo que ambas cosas me permiten animarme y enfrentar diferentes desafíos.
+  En mi tiempo libre, me gusta estar al aire libre, practicar Tai-chi y estar con la gente que quiero. Me estoy formando en desarrollo web en la parte Front end,
+  por eso he creado esta página para ir subiendo mis proyectos y mostrarlos al mundo. ¡Gracias por mirar!
+  -->
+          </p>
+        </div> 
+        <div class="home-photo">
+          <img src="images/perritou.png" alt="perrito">
+        </div>
+    </div>
+ </section>
 
-     <article class="home-article-container">
-          
-           
-              <h2 class="home-tittle">Hi! I am <span>Rocio</span></h2>
-          
 
-            <div class="home-photo">
-              <img src="images/perritou.png" alt="perrito">
-            </div>
 
-                <p class="home-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br> sed do
-                  eiusmod tempor incididunt ut labore et dolore magna <br> aliqua. Ut
-                  enim ad minim veniam,
-                  quis nostrud exercitation <br> ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat.<br> Duis aute irure dolor in reprehenderit in
-                  voluptate velit<br>
-                  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint<br>
-                  occaecat cupidatat non proident, sunt in culpa qui officia<br>
-                  deserunt mollit anim id est laborum.
-                </p>
-          
-    
-      </article>
- </div>
 
-    
+
+
+
+<aside class="media-icons">
+<img class="cv-icon" src="images/cv icon.png" alt="Curriculum">
+<img class="github-icon" src="images/github icon.png" alt="GitHub">
+<img class="linkedin-icon" src="images/linkedin icon.png"
+alt="Linkedin">
+</aside>
+
+
+
 
 <section id="my-skills">
 
-  <div class="my-skills-container">
 
-      <div class="html-container">
-        <h3 class="html-tittle">HTML 5</h3>
-        <div class="html-bar">
-            </div>
-      </div>
-      
+<div class="my-skills-container">
 
 
-      <div class="css-container">
-        <h3 class="css-tittles">CSS</h3>
-        <div class="css-bar">
-            </div>
-      </div>
+<div class="html-container">
+<h3 class="html-tittle">HTML 5</h3>
+<div class="html-bar">
+</div>
+</div>
 
 
 
-      <div class="javascript-container">
-        <h3 class="javascript-tittle">JavaScript</h3>
-            <div class="javascript-bar"> 
-            </div>
-      </div>
 
-  </div>
+<div class="css-container">
+<h3 class="css-tittles">CSS</h3>
+<div class="css-bar">
+</div>
+</div>
+
+
+
+
+
+
+<div class="javascript-container">
+<h3 class="javascript-tittle">JavaScript</h3>
+<div class="javascript-bar">
+</div>
+</div>
+
+
+</div>
+
 
 </section>
+
+
 
 
 <section id="my-projects">
 
 
-        <div class="project-ada-1">
-            <title class="project-ada-tittle">ADA PROJECT </title>
-            <a href="https://github.com/Roxha-V/Project-work-Ada">Proyect Work - Ada </a>
-        </div>
-            
 
 
-        <div class="project-alma">
-            <title class="project-alma-tittle">MENU ALMA</title>
-            <a href="">Menu Alma Casa Vegana</a>
-        </div>
+<div class="project-ada-1">
+<title class="project-ada-tittle">ADA PROJECT </title>
+<a href="https://github.com/Roxha-V/Project-work-Ada">Proyect Work - Ada </a>
+</div>
 
 
-        <div class="projec-algo">
-        <title class="project-algo-tittle">PROJECT ALGO</title>
-        <a href=""> AUn nose jaja</a>
-    </div>
 
-   
+
+<div class="project-alma">
+<title class="project-alma-tittle">MENU ALMA</title>
+<a href="">Menu Alma Casa Vegana</a>
+</div>
+
+
+
+
+<div class="projec-algo">
+<title class="project-algo-tittle">PROJECT ALGO</title>
+<a href=""> AUn nose jaja</a>
+</div>
+
+
 </section>
+
+
 
 
 <section id="contact">
 
+
 <h1>Contact Me</h1>
 
-<form action="#" method="post">
-    <label for="nombre">Nombre</label>
-    <input type="text" id="nombre" name="nombre" required>
-    <br>
-    <label for="correo">Correo Electrónico:</label>
-    <input type="email" id="correo" name="correo" required>
-    <br>
-    <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-    <br>
-    <input type="submit" value="Enviar">
+
+
+
+<div>
+
+
+<form id="miFormulario" action="/info.txt" method="POST">
+
+
+¿Whats your name?
+<input type="text" name="firstname">
+¿And your Surname?
+<input type="text" name="lastname">
+
+
+<br>
+
+
+¿How do i contact you?
+<input type="email" name="email">
+
+
+<br>
+
+
+¿What is you message for me?
+<input type="text" name="text-box">
+
+
+<label>
+<input type="checkbox" required autocomplete="off"> Acepto vender mi alma
+</label>
+
+
+<br>
+<input type="submit" value="Contact me!">
+
+
 </form>
+
 
 </section>
 
 
+</div>
 
 
 
@@ -169,7 +245,6 @@
 
 
 
-  
 
 
 
@@ -177,6 +252,33 @@
 
 
 
-    </header>
-  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</header>
+</body>
 </html>
