@@ -52,4 +52,4 @@ Integrar un blog para compartir mis experiencias y conocimientos.
 
 En conclusión, este proyecto de portafolio personal ha sido una valiosa oportunidad para aplicar mis habilidades de desarrollo web front-end y crear una presencia en línea que refleje mi identidad profesional. A través de este portafolio, espero abrir puertas a oportunidades laborales y colaboraciones en el campo del desarrollo web.
 
-¡Espero que estos puntos te ayuden a crear una documentación sólida para tu proyecto de portafolio personal! Recuerda personalizar cada sección de acuerdo con tus propias experiencias y logros. ¡Buena suerte con tu desarrollo web!
+

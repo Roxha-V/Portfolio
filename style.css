@@ -1,57 +1,217 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
 
-
 /* el tamaño de las fuentes van a estar sujetas a los breakpoints(punto de quiebre donde
 se genera un cambio de tamaño segun el display a donde se presente la aplicacion) de media-querys-
 breakpoints basados en el ancho de la pantalla: desktop 1920 / small notebook 1366px / tablet 768px / mobile large 426px */
 
-
 /* aca se van a definir variables*/
 
-
 :root {
---fuente-base: 16px;
---desktop: 1920px;
---small-notebook: 1366px;
---tablet: 768px;
---mobile-large: 426px;
+  --fuente-base: 16px;
+  --desktop: 1920px;
+  --small-notebook: 1366px;
+  --tablet: 768px;
+  --mobile-large: 426px;
 }
 /* se utilizan las media querys para definir los anchos max y min que redimensionaran la aplicacion*/
 /*en este ej se usara max-width para lograr aplicar reglas a pantallas con ancho menor o = a 768px*/
 
-
 @media all and (max-width: var(--tablet)) {
-body {
-background-color: #ff3300;
-}
-:root {
---fuente-base: 10px;
-}
+  body {
+    background-color: #ff3300;
+  }
+  :root {
+    --fuente-base: 10px;
+  }
 }
 
+/* general style*/
 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 
 /*body style*/
 /*medidas iniciales en 0*/
 html,
 body {
-font-family: JetBrains Mono, Outfit;
-font-size: var(--fuente-base);
-width: 100%;
-height: 100%;
+  font-family: JetBrains Mono, Outfit;
+  font-size: var(--fuente-base);
+  width: 100%;
+  height: 100%;
 }
 
+.tittles-text {
+  text-decoration: none;
+  font-size: 2rem;
+  font-family: JetBrains Mono;
+  text-shadow: 0.1rem 0.1rem 0.15rem rgb(52, 51, 51);
+}
 
+.paragraphs-text {
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: Outfit;
+  text-shadow: 0.1rem 0.1rem 0.15rem rgb(52, 51, 51);
+}
 
+.container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vmax;
+}
 
-/*
+/*main nav style*/
+.main-nav ul {
+  display: flex;
+  flex-direction: wrap;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.main-nav a {
+  color: #ff3300;
+}
+
+.main-nav a:hover {
+  color: #ccc;
+  /* Color del texto al pasar el cursor sobre los enlaces */
+}
+
+#my-menu {
+  background-color: #60b0ef;
+}
+
+/*home style*/
+
+#home {
+  background-color: #e06c75;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#home-article {
+  color: white;
+}
+
+.home-span {
+  color: #e5bc68;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-shadow: 0.5rem 0.2rem 0.2rem rgb(52, 51, 51);
+  transition: all 0.5s;
+}
+
+.home-span:hover {
+  font-size: 4.75rem;
+  text-shadow: 0.6875rem -0.125rem 0.4375rem rgba(15, 10, 10, 0.25);
+}
+
+.home-p {
+  display: flex;
+  width: 721px;
+  height: 246px;
+  flex-direction: column;
+  color: #000;
+  font-family: Courier Prime;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0.2px;
+  text-align: justify;
+  order: 2;
+}
+
+.home-photo {
+  transform: scaleX(-1);
+  size: 1cap;
+}
+
+/*home aside style*/
+
+.sidebar {
+  background-color: #e5bc68;
+  border-radius: 1rem;
+  margin: 3rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  width: 9.375rem;
+  height: 21.875rem;
+}
+
+.sidebar img {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+}
+
+.my-skills-container {
+  .my-skills-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(229 188 104);
+  }
+
+  /*background-color: aqua;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-around;
+background-color: rgb(229 188 104); */
+}
+
+#my-projects {
+  padding: 20px;
+}
+
+.project-container {
+  margin-bottom: 20px;
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.projects-tittle {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.projects-tittle a {
+  display: block;
+  color: #ff3300;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.project-ada-1 a:hover,
+.project-alma a:hover,
+.project-algo a:hover {
+  color: #e06c75;
+}
+
+.project-ada-1 a:visited,
+.project-alma a:visited,
+.project-algo a:visited {
+  color: #e06c75;
+}
+
+/* Aqui se encuentra una animacion que ira en la primera seccion del portfolio, por eso se encuentra ccomentada
 header{
 background: #282c34;
 font-size: 2vmin;
@@ -132,242 +292,3 @@ transform: translatey(-16.5vmin);
 }
 }
 */
-
-
-/*menu style*/
-
-
-.menu-container {
-background-color: rgb(104, 139, 244);
-/* Color de fondo de la barra de navegación */
-position: fixed;
-top: 0;
-left: 0;
-width: 100vmax;
-}
-
-
-.menu {
-max-width: 100vw;
-margin: 0 auto;
-padding: 10px 20px;
-}
-
-
-.menu ul {
-list-style: none;
-padding: 0;
-margin: 0;
-display: flex;
-justify-content: space-evenly;
-align-content: center;
-}
-
-
-.menu li {
-display: inline-block;
-margin-right: 20px;
-align-items: center;
-}
-
-
-.menu a {
-text-decoration: none;
-color: #ff3300;
-font-size: 1.125rem;
-font-family: JetBrains Mono;
-}
-
-
-.menu a:hover {
-color: #ccc;
-/* Color del texto al pasar el cursor sobre los enlaces */
-}
-
-
-.home-container {
-background-color: #e06c75;
-height: 750px;
-padding-top: 100px;
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-align-items: center;
-}
-
-
-
-
-/*aside style*/
-
-
-aside {
-background-color: #e5bc68;
-border-radius: 1rem;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-display: inline-flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 40px;
-width: 150px;
-height: 350px;
-}
-
-
-aside img {
-width: 60px;
-height: 60px;
-}
-
-
-/*home style*/
-
-
-.home-article-container {
-display: flex;
-flex-direction: column;
-justify-content: center;
-}
-
-
-.home-tittle {
-h2 {
-min-height: 76px;
-height: 76px;
-color: #000;
-text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-font-family: "Courier New", Courier, monospace;
-font-size: 56px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-}
-
-
-.color-primary{
-color:#000;
-}
-.size-sm{
-font-size: 1rem;
-}
-.size-3xl{
-font-size: 3rem;
-}
-
-
-.home-tittle span {
-color: #e5bc68;
-font-family: Outfit;
-font-size: 3.5rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-shadow: 12px 4px 6px rgba(0, 0, 0, 0.25);
-transition: all 0.5s;
-}
-
-
-.home-tittle span:hover {
-font-size: 4.75rem;
-text-shadow: 11px -2px 7px rgba(15, 10, 10, 0.25);
-}
-
-
-.home-p {
-display: flex;
-width: 721px;
-height: 246px;
-flex-direction: column;
-color: #000;
-font-family: Courier Prime;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: 25px;
-letter-spacing: 0.2px;
-text-align: justify;
-order: 2;
-}
-
-
-.my-skills-container {
-.my-skills-container {
-display: flex;
-justify-content: space-between;
-background-color: rgb(229 188 104);
-}
-
-
-/*background-color: aqua;
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-around;
-background-color: rgb(229 188 104); */
-}
-
-
-#my-projects {
-padding: 20px;
-}
-
-
-.project-ada-1,
-.project-alma,
-.project-algo {
-margin-bottom: 20px;
-background-color: #f1f1f1;
-padding: 15px;
-border-radius: 5px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
-.project-ada-tittle,
-.project-alma-tittle,
-.project-algo-tittle {
-color: #333;
-font-size: 24px;
-font-weight: bold;
-}
-
-
-.project-ada-1 a,
-.project-alma a,
-.project-algo a {
-display: block;
-color: #ff3300;
-margin-top: 10px;
-text-decoration: none;
-transition: color 0.3s ease;
-}
-
-
-.project-ada-1 a:hover,
-.project-alma a:hover,
-.project-algo a:hover {
-color: #e06c75;
-}
-
-
-
-
-
-
-
-
-.html-container {
-}
-
-
-.css-container {
-}
-
-
-.javascript-container {
-}
-
-
-/
