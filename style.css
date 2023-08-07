@@ -5,43 +5,59 @@
 se genera un cambio de tamaño segun el display a donde se presente la aplicacion) de media-querys-
 breakpoints basados en el ancho de la pantalla: desktop 1920 / small notebook 1366px / tablet 768px / mobile large 426px */
 
-/* aca se van a definir variables*/
-
-:root {
-  --fuente-base: 16px;
-  --desktop: 1920px;
-  --small-notebook: 1366px;
-  --tablet: 768px;
-  --mobile-large: 426px;
-}
-/* se utilizan las media querys para definir los anchos max y min que redimensionaran la aplicacion*/
-/*en este ej se usara max-width para lograr aplicar reglas a pantallas con ancho menor o = a 768px*/
-
-@media all and (max-width: var(--tablet)) {
-  body {
-    background-color: #ff3300;
-  }
-  :root {
-    --fuente-base: 10px;
-  }
-}
-
-/* general style*/
-
+/*medidas iniciales en 0*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --fuente-base: 16px;
+  --desktop: width 1920px;
+  --small-notebook: width 1366px;
+  --tablet: width 768px;
+  --mobile-large: width 426px;
+}
+
 /*body style*/
-/*medidas iniciales en 0*/
+
 html,
 body {
   font-family: JetBrains Mono, Outfit;
   font-size: var(--fuente-base);
   width: 100%;
   height: 100%;
+}
+
+/*MEDIA QUERYS*/
+
+/*DESKTOP*/
+@media (max-width: 1920) and (min-width: 1366px) {
+  :root {
+    font-size: var(--fuente-base);
+  }
+}
+
+/*NOTEBOOK*/
+@media (max-width: 1366px) and (min-width: 768px) {
+  :root {
+    --fuente-base: 15px;
+  }
+}
+
+/*TABLET*/
+@media (max-width: 768px) and (min-width: 426px) {
+  :root {
+    --fuente-base: 12px;
+  }
+}
+
+/*MOBILE*/
+@media (max-width: 426px) {
+  :root {
+    --fuente-base: 10px;
+  }
 }
 
 .tittles-text {
@@ -59,10 +75,12 @@ body {
 }
 
 .container {
-  position: relative;
+  width: 1440px;
+  height: 750px;
+  display: flex;
+  flex-direction: column;
   top: 0;
   left: 0;
-  width: 100vmax;
 }
 
 /*main nav style*/
@@ -94,6 +112,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 #home-article {
@@ -112,28 +131,18 @@ body {
 
 .home-span:hover {
   font-size: 4.75rem;
-  text-shadow: 0.6875rem -0.125rem 0.4375rem rgba(15, 10, 10, 0.25);
-}
-
-.home-p {
-  display: flex;
-  width: 721px;
-  height: 246px;
-  flex-direction: column;
-  color: #000;
-  font-family: Courier Prime;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 25px;
-  letter-spacing: 0.2px;
-  text-align: justify;
-  order: 2;
+  text-shadow: 0.6875rem -0.125rem 0.4375rem rgba(0, 0, 0, 0.556);
 }
 
 .home-photo {
-  transform: scaleX(-1);
-  size: 1cap;
+  filter: drop-shadow(0.2rem 0.3rem 0.4rem rgba(0, 0, 0, 0.739));
+}
+
+.photo {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  clip-path: circle(186px at 248px 214px);
 }
 
 /*home aside style*/
