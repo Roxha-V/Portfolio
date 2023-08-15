@@ -26,8 +26,6 @@ html,
 body {
   font-family: JetBrains Mono, Outfit;
   font-size: var(--fuente-base);
-  width: 100%;
-  height: 100%;
 }
 
 /*MEDIA QUERYS*/
@@ -69,18 +67,21 @@ body {
 
 .paragraphs-text {
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-family: Outfit;
   text-shadow: 0.1rem 0.1rem 0.15rem rgb(52, 51, 51);
 }
-
-.container {
-  width: 1440px;
-  height: 750px;
+.main-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   top: 0;
   left: 0;
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
 }
 
 /*main nav style*/
@@ -97,26 +98,29 @@ body {
 }
 
 .main-nav a:hover {
-  color: #ccc;
+  color: #000000;
   /* Color del texto al pasar el cursor sobre los enlaces */
 }
 
 #my-menu {
-  background-color: #60b0ef;
+  background-color: #ffffff;
 }
 
 /*home style*/
 
 #home {
-  background-color: #e06c75;
+  background-color: #f06060;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 #home-article {
   color: white;
+  letter-spacing: 2px;
+  transition: 0.5s;
 }
 
 .home-span {
@@ -161,63 +165,217 @@ body {
   height: 21.875rem;
 }
 
-.sidebar img {
+.media-icon {
+  margin: 0 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
   position: relative;
   width: 5rem;
   height: 5rem;
 }
 
 .my-skills-container {
-  .my-skills-container {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(229 188 104);
-  }
-
-  /*background-color: aqua;
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-around;
-background-color: rgb(229 188 104); */
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0, 0, 0 10rem;
+  background-color: #f06060;
+  text-align: center;
+  gap: 25px;
 }
 
-#my-projects {
-  padding: 20px;
+.skill-card {
+  width: 25rem;
+  height: 25rem;
+  margin: 1.875rem;
+  border: 0.125rem solid #ffffff;
+  font-size: 2rem;
+  border-radius: 0.625rem;
+  box-shadow: 0px 9px 6px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s; /*Aun no lo entiendo del todo al transform*/
+  cursor: pointer;
 }
 
-.project-container {
-  margin-bottom: 20px;
-  background-color: #f1f1f1;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.skills-tittles {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: white;
 }
 
-.projects-tittle {
-  color: #333;
-  font-size: 24px;
+#html {
+  background-color: #d54f30;
+}
+
+#css {
+  background-color: #3851bc;
+}
+
+#js {
+  background-color: #d7c03e;
+}
+
+#git-hub {
+  background-color: #64bb5d;
+}
+
+#figma {
+  background-color: #ad1616;
+}
+
+/*Aca va lo que pasa con el hover, osea cuando se pasa por encima*/
+.skill-card:hover {
+  transform: scale(1.05);
+  overflow: hidden;
+}
+
+.logo {
+  position: relative;
+  color: #e848bb;
   font-weight: bold;
-}
-
-.projects-tittle a {
-  display: block;
-  color: #ff3300;
-  margin-top: 10px;
+  font-size: 1em;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
-.project-ada-1 a:hover,
-.project-alma a:hover,
-.project-algo a:hover {
-  color: #e06c75;
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  transition: transform 0.7s;
 }
 
-.project-ada-1 a:visited,
-.project-alma a:visited,
-.project-algo a:visited {
-  color: #e06c75;
+.flex-all-centred {
+  /*Este selecctor selecciona todos los elementos que contengan display flez y los centra*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.project-cards {
+  width: 500px;
+  height: 500px;
+  background: #2c73df;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.slide {
+  width: 300px;
+  height: 200px;
+  background: #2c73df;
+  position: relative;
+}
+
+.up-slide {
+  position: relative;
+  z-index: 1;
+  transition: 0.7s;
+  background-color: #2c73df;
+  width: 100%; /* Se ajusta al 100 para que tenga el mismo ancho que la card*/
+  height: 50%; /* aca se pone 50% porque es lo que va a bajar con el hover*/
+  margin-bottom: 25px;
+  width: 300px;
+  height: 200px;
+}
+
+.up-slide h3 {
+  font-size: 2rem;
+  color: #000000;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.down-slide {
+  position: relative;
+  z-index: -1;
+  padding: 20px;
+  background: #2c73df;
+  transition: 0.7s;
+  width: 100%; /* Se ajusta al 100 para que tenga el mismo ancho que la card*/
+  height: -50%;
+  display: flex;
+  transform-origin: top;
+}
+
+.down-slide p {
+  font-size: 1 rem;
+  color: #000000;
+  font-family: Outfit;
+  text-align: center;
+  width: 350px;
+}
+
+.slide:hover > .up-slide {
+  /*En este caso se selecciona el bloque "up.slide" dentro de slide y se le adigna un modificador transform
+  (para que cambie su posicion con respecto al eje y) por medio del pseudo elemento :hover */
+  transform: translateY(-80px);
+}
+
+.project-cards:hover > .slide {
+  /*El combinador > selecciona los elementos que son hijos directos del primer elemento.*/
+  transform: scale(1.05);
+  transform: translateY(-40px);
+  background-image: url(images/ada\ project\ gif.gif);
+  background-size: cover;
+}
+
+.slide:hover > .down-slide {
+  transform: translateY(80px);
+}
+.down-slide p {
+  font-size: 1 rem;
+  color: #000000;
+  font-family: Outfit;
+  text-align: center;
+  width: 350px;
+}
+
+/*
+.container-projects {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.projects {
+  width: 500px;
+  height: 500px;
+  background: #2c73df;
+  border-radius: 50px;
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.projects:hover {
+  transform: scale(1.05);
+}
+
+.projects a {
+  color: #ff3300;
+  text-decoration: none;
+  text-align: center;
+  font-size: 2rem;
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 1rem;
 }
 
 /* Aqui se encuentra una animacion que ira en la primera seccion del portfolio, por eso se encuentra ccomentada
@@ -284,7 +442,7 @@ color: #c678dd;
 
 
 .it {
-color: #a9b0bd;
+color: #5F7B27;
 }
 
 
