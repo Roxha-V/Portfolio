@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
 /* el tamaño de las fuentes van a estar sujetas a los breakpoints(punto de quiebre donde
 se genera un cambio de tamaño segun el display a donde se presente la aplicacion) de media-querys-
 breakpoints basados en el ancho de la pantalla: desktop 1920 / small notebook 1366px / tablet 768px / mobile large 426px */
@@ -26,12 +26,14 @@ html,
 body {
   font-family: JetBrains Mono, Outfit;
   font-size: var(--fuente-base);
+  margin: 0px;
+  height: 100%;
 }
 
 /*MEDIA QUERYS*/
 
 /*DESKTOP*/
-@media (max-width: 1920) and (min-width: 1366px) {
+@media (max-width: 1920px) and (min-width: 1366px) {
   :root {
     font-size: var(--fuente-base);
   }
@@ -71,7 +73,7 @@ body {
   font-family: Outfit;
   text-shadow: 0.1rem 0.1rem 0.15rem rgb(52, 51, 51);
 }
-.main-container {
+#main-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,6 +84,78 @@ body {
 .section {
   width: 100%;
   height: 100vh;
+}
+
+header {
+  padding-top: 130px;
+  background: #282c34;
+  font-size: 30px;
+  font-family: JetBrains Mono, monospace;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #e4bb68;
+}
+
+.cadena {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  animation: move 4s infinite;
+}
+
+.saludo {
+  position: relative;
+  top: 9px;
+  animation: white-out 3s;
+}
+
+.cierre::after {
+  content: "";
+  position: absolute;
+  height: 250px;
+  width: 500px;
+  background: #0046d2;
+  transform: translate(-849px, -268px);
+}
+
+.cierre::before {
+  content: "";
+  position: absolute;
+  height: 120px;
+  width: 500px;
+  background: #1255d9;
+  transform: translate(-765px, 57px);
+}
+
+.en {
+  color: #fa8231;
+}
+
+.es {
+  color: white;
+}
+
+.de {
+  color: #c678dd;
+}
+
+.it {
+  color: #5f7b27;
+}
+
+@keyframes move {
+  25% {
+    transform: translatey(-5.8vmin);
+    opacity: 1;
+  }
+  50% {
+    transform: translatey(-11vmin);
+  }
+  75% {
+    transform: translatey(-16.5vmin);
+  }
 }
 
 /*main nav style*/
@@ -102,19 +176,18 @@ body {
   /* Color del texto al pasar el cursor sobre los enlaces */
 }
 
-#my-menu {
+#nav-bar {
   background-color: #ffffff;
 }
 
 /*home style*/
 
 #home {
-  background-color: #f06060;
+  background-image: linear-gradient(to bottom, #a6bcda, #92a5be);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 
 #home-article {
@@ -138,17 +211,28 @@ body {
   text-shadow: 0.6875rem -0.125rem 0.4375rem rgba(0, 0, 0, 0.556);
 }
 
-.home-photo {
-  filter: drop-shadow(0.2rem 0.3rem 0.4rem rgba(0, 0, 0, 0.739));
-}
-
 .photo {
   width: 500px;
   height: 500px;
   object-fit: contain;
-  clip-path: circle(186px at 248px 214px);
-}
+  clip-path: circle(186px at 50% 50%);
+  border: 10px solid;
+  background-image: linear-gradient(to right, #5ddcff, #3c67e3, #4e00c2);
+  transition: rotate 5s linear infinite;
+  z-index: -1;
 
+  @keyframes rotate {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
 /*home aside style*/
 
 .sidebar {
@@ -179,18 +263,17 @@ body {
 
 .my-skills-container {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
-  padding: 0, 0, 0 10rem;
-  background-color: #f06060;
+  background: linear-gradient(to bottom, #92a5be, #738398);
   text-align: center;
-  gap: 25px;
 }
 
 .skill-card {
   width: 25rem;
   height: 25rem;
-  margin: 1.875rem;
+  margin: 2.875rem;
   border: 0.125rem solid #ffffff;
   font-size: 2rem;
   border-radius: 0.625rem;
@@ -231,6 +314,14 @@ body {
   overflow: hidden;
 }
 
+/*seccion projects*/
+
+#my-projects {
+  background: linear-gradient(to bottom, #738398, #48525e);
+}
+
+/* linkeadas para redireccion  */
+
 .logo {
   position: relative;
   color: #e848bb;
@@ -239,6 +330,8 @@ body {
   text-decoration: none;
 }
 
+/* contenedor de todos los projects*/
+
 .projects-container {
   display: flex;
   flex-wrap: wrap;
@@ -246,6 +339,31 @@ body {
   justify-content: space-around;
   align-items: center;
   transition: transform 0.7s;
+  width: 100%;
+}
+
+/* cards general */
+
+.project-card {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.card_ada:hover {
+  background: #b71b59;
+}
+
+.card_alma:hover {
+  background: #f47820;
+}
+
+.card_rym:hover {
+  background: #00b5cc;
+  border-color: #b2df28;
 }
 
 .flex-all-centred {
@@ -257,20 +375,11 @@ body {
   align-items: center;
 }
 
-.project-cards {
-  width: 500px;
-  height: 500px;
-  background: #2c73df;
-  position: relative;
-  border-radius: 10px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-}
+/*slides general y por card*/
 
 .slide {
   width: 300px;
   height: 200px;
-  background: #2c73df;
   position: relative;
 }
 
@@ -320,12 +429,24 @@ body {
   transform: translateY(-80px);
 }
 
-.project-cards:hover > .slide {
+.project-card:hover > .slide {
   /*El combinador > selecciona los elementos que son hijos directos del primer elemento.*/
   transform: scale(1.05);
   transform: translateY(-40px);
-  background-image: url(images/ada\ project\ gif.gif);
   background-size: cover;
+}
+
+.project-card:hover > .slide-background_ada {
+  background-image: url(images/ada\ project\ gif.gif);
+}
+
+.project-card:hover > .slide-background_alma {
+  background-image: url(images/alma.jpg);
+  transform: translateY(-30px);
+}
+
+.project-card:hover > .slide-background_rick_morty {
+  background-image: url(images/rickymorty.gif);
 }
 
 .slide:hover > .down-slide {
@@ -337,6 +458,10 @@ body {
   font-family: Outfit;
   text-align: center;
   width: 350px;
+}
+
+#contact {
+  background: linear-gradient(to bottom, #48525e, #282d34);
 }
 
 /*
@@ -370,6 +495,7 @@ body {
   font-size: 2rem;
   text-align: center;
 }
+*/
 
 footer {
   position: absolute;
@@ -377,85 +503,3 @@ footer {
   left: 10px;
   font-size: 1rem;
 }
-
-/* Aqui se encuentra una animacion que ira en la primera seccion del portfolio, por eso se encuentra ccomentada
-header{
-background: #282c34;
-font-size: 2vmin;
-font-family: JetBrains Mono, monospace;
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-align-items: center;
-color: #e4bb68;
-}
-
-
-.string {
-display: flex;
-flex-direction: column;
-text-align: center;
-animation: move 4s infinite;
-}
-
-
-.greeting {
-position: relative;
-top: 8.6vmin;
-animation: white-out 5s infinite;
-}
-
-
-.closure::after {
-content: '';
-position: absolute;
-height: 25vmin;
-width: 40vmin;
-background: #282c34;
-transform: translate(-45vmin, -24.5vmin);
-}
-
-
-.closure::before {
-content: '';
-position: absolute;
-height: 25vmin;
-width: 40vmin;
-background: #282c34;
-transform: translate(-40vmin, 5vmin);
-}
-
-
-.en {
-color: #fa8231;
-}
-
-
-.es {
-color: white;
-}
-
-
-.de {
-color: #c678dd;
-}
-
-
-.it {
-color: #5F7B27;
-}
-
-
-@keyframes move {
-25% {
-transform: translatey(-5.8vmin);
-opacity: 1;
-}
-50% {
-transform: translatey(-11vmin);
-}
-75% {
-transform: translatey(-16.5vmin);
-}
-}
-*/
