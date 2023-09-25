@@ -81,52 +81,86 @@ body {
   left: 0;
 }
 
-.section {
-  width: 100%;
-}
+
 
 header {
-  padding-top: 130px;
+  height:470px;
+  display: flex;
+  justify-content: space-evenly;
   background: #282c34;
   font-size: 30px;
   font-family: JetBrains Mono, monospace;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   align-items: center;
   color: #e4bb68;
+  padding-bottom: 100px;
+  position: sticky;
+
 }
+
+
+
+.head-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height: 70px;
+}
+
 
 .cadena {
   display: flex;
   flex-direction: column;
   text-align: center;
-  animation: move 4s infinite;
+  animation: movimiento 4s infinite;
 }
 
 .saludo {
+ animation: espacio 5s infinite;
+}
+
+
+.saludo .en {
   position: relative;
-  top: 9px;
-  animation: white-out 3s;
-}
 
-.cierre::after {
+ }
+
+ .saludo .es {
+  position: relative;
+
+ }
+
+ .saludo .ge {
+  position: relative;
+
+ }
+
+ .saludo .it {
+  position: relative;
+
+ }
+
+
+.animation::before {
   content: "";
   position: absolute;
-  height: 250px;
-  width: 500px;
-  background: #0046d2;
-  transform: translate(-849px, -268px);
+  height: 233px;
+  width: 441px;
+  background: #282c34;
+  transform: translate(-438px, 74px);
 }
 
-.cierre::before {
+
+.animation::after {
   content: "";
   position: absolute;
-  height: 120px;
-  width: 500px;
-  background: #1255d9;
-  transform: translate(-765px, 57px);
+  height: 261px;
+  width: 442px;
+  background: #282c34;
+  transform: translate(-432px, -264.6px);
 }
+
+
 
 .en {
   color: #fa8231;
@@ -144,30 +178,35 @@ header {
   color: #5f7b27;
 }
 
-@keyframes move {
+@keyframes movimiento {
   25% {
-    transform: translatey(-5.8vmin);
-    opacity: 1;
+    transform: translatey(-240px);
+   
   }
   50% {
-    transform: translatey(-11vmin);
+    transform: translatey(-165px);
   }
   75% {
-    transform: translatey(-16.5vmin);
+    transform: translatey(-90px);
   }
 }
 
 /*main nav style*/
-.main-nav ul {
-  display: flex;
-  flex-direction: wrap;
-  align-items: center;
-  justify-content: space-around;
-  list-style: none;
+.main-nav {
+  background-color: #0046d2;
+  ul {
+    display: flex;
+    flex-direction: wrap;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    background: #00b5cc;
+    
+  }
 }
 
 .main-nav a {
-  color: #ff3300;
+  color: #1d1f7c;
 }
 
 .main-nav a:hover {
@@ -182,7 +221,7 @@ header {
 /*home style*/
 
 #home {
-  background-image: linear-gradient(to bottom, #ed3d1a, #92a5be);
+  background-image: linear-gradient(to bottom, #adc4e1, #92a5be);
   display: flex;
   flex-direction: row;
   justify-content: center;
