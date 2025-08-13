@@ -27,4 +27,3 @@ yarn-error.log*
 next-env.d.ts
 
 # Configuración local
-lib/contact-config.ts
