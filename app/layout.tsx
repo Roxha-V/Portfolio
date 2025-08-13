@@ -3,8 +3,8 @@ import './globals.css'
 import { LanguageProvider } from '@/contexts/language-context'
 
 export const metadata: Metadata = {
-  title: 'RX-Dev - Portfolio',
-  description: 'Roxha Valverde - Desarrolladora Frontend',
+  title: 'Roxha Dev - Portfolio',
+  description: 'Rocio Valverde - Desarrolladora Frontend - Portfolio',
   icons: {
     icon: [
       {

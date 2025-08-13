@@ -58,7 +58,7 @@ export function Navigation() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            RX-Dev
+            Roxha-Dev
           </motion.div>
 
           {/* Desktop Navigation */}
