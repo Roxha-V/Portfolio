@@ -140,19 +140,7 @@ export function ContactSection() {
                   </div>
                 </motion.div>
 
-                <motion.div 
-                  className="flex items-center space-x-4 p-4 rounded-lg bg-green-50 hover:bg-green-100 transition-colors duration-300"
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="w-12 h-12 bg-green-700 rounded-md flex items-center justify-center">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">{t('contact.phone')}</p>
-                    <p className="text-gray-600">{contactConfig.phone}</p>
-                  </div>
-                </motion.div>
+               
 
                 <motion.div 
                   className="flex items-center space-x-4 p-4 rounded-lg bg-green-50 hover:bg-green-100 transition-colors duration-300"
