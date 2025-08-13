@@ -3,6 +3,8 @@
 import { ArrowDown, Gitlab, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { config } from "@/lib/config"
+import { contactConfig } from "@/lib/contact-config"
 
 export function HeroSection() {
   const scrollToProjects = () => {
@@ -89,7 +91,7 @@ export function HeroSection() {
             
             <div className="flex gap-4">
               <motion.a 
-                href="https://gitlab.com/rociovalverde1" 
+                href={contactConfig.social.gitlab} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -105,7 +107,7 @@ export function HeroSection() {
                 </Button>
               </motion.a>
               <motion.a 
-                href="https://www.linkedin.com/in/rocio-valverde/" 
+                href={contactConfig.social.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -121,7 +123,7 @@ export function HeroSection() {
                 </Button>
               </motion.a>
               <motion.a 
-                href="mailto:rociovalverde1@gmail.com"
+                href={`mailto:${contactConfig.email}`}
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}

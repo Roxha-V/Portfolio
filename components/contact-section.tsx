@@ -13,6 +13,7 @@ import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import { contactConfig } from "@/lib/contact-config"
 
 const contactSchema = yup.object({
   name: yup
@@ -57,7 +58,7 @@ export function ContactSection() {
       const message = `Hola! Mi nombre es ${data.name}.\n\nAsunto: ${data.subject}\n\nMensaje: ${data.message}\n\n Puedes contactarme a través de mi correo: ${data.email}`
       
       const encodedMessage = encodeURIComponent(message)
-      const whatsappUrl = `https://wa.me/5493512280243?text=${encodedMessage}`
+      const whatsappUrl = `https://wa.me/${contactConfig.whatsappNumber}?text=${encodedMessage}`
       
       window.open(whatsappUrl, '_blank')
       
@@ -133,7 +134,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Email</p>
-                    <p className="text-gray-600">rociovalverde1@gmail.com</p>
+                    <p className="text-gray-600">{contactConfig.email}</p>
                   </div>
                 </motion.div>
 
@@ -147,7 +148,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Teléfono</p>
-                    <p className="text-gray-600">+54 9 3512280243</p>
+                    <p className="text-gray-600">{contactConfig.phone}</p>
                   </div>
                 </motion.div>
 
@@ -161,7 +162,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Ubicación</p>
-                    <p className="text-gray-600">Córdoba Capital, Argentina</p>
+                    <p className="text-gray-600">{contactConfig.location}</p>
                   </div>
                 </motion.div>
               </div>
@@ -214,82 +215,4 @@ export function ContactSection() {
                         placeholder="Tu nombre completo"
                       />
                       {errors.name && (
-                        <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
-                      )}
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Correo Electrónico *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        {...register("email")}
-                        className={`border-gray-300 focus:border-green-700 focus:ring-green-700 ${
-                          errors.email ? "border-red-500" : ""
-                        }`}
-                        placeholder="tu@email.com"
-                      />
-                      {errors.email && (
-                        <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">Asunto *</Label>
-                    <Input
-                      id="subject"
-                      {...register("subject")}
-                      className={`border-gray-300 focus:border-green-700 focus:ring-green-700 ${
-                        errors.subject ? "border-red-500" : ""
-                      }`}
-                      placeholder="¿De qué quieres hablar?"
-                    />
-                    {errors.subject && (
-                      <p className="text-sm text-red-500 mt-1">{errors.subject.message}</p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Mensaje *</Label>
-                    <Textarea
-                      id="message"
-                      {...register("message")}
-                      rows={5}
-                      className={`border-gray-300 focus:border-green-700 focus:ring-green-700 resize-none ${
-                        errors.message ? "border-red-500" : ""
-                      }`}
-                      placeholder="Cuéntame sobre tu proyecto o idea..."
-                    />
-                    {errors.message && (
-                      <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>
-                    )}
-                  </div>
-
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-green-700 hover:bg-green-800 text-white py-3 rounded-md transition-colors duration-300 disabled:opacity-70"
-                    >
-                      {isSubmitting ? (
-                        <div className="flex items-center justify-center">
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Abriendo WhatsApp...
-                        </div>
-                      ) : (
-                        <>
-                          <Send className="h-5 w-5 mr-2" />
-                          Enviar por WhatsApp
-                        </>
-                      )}
-                    </Button>
-                  </motion.div>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-      </motion.div>
-    </section>
-  )
-}
+                        <p className="text-sm text-red-500 mt-1">
