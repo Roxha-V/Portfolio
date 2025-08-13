@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
+import { useLanguage } from '@/contexts/language-context'
 
 const projects = [
   {
@@ -36,12 +37,14 @@ const projects = [
       "Es una aplicación web pensada para separar pistas de audio, orientada a músicos, profesionales del audio y usuarios en general. Aunque el objetivo es convertirla en una app móvil en el futuro, actualmente funciona como versión web y sigue en desarrollo activo. Personalmente me dedique como frontend junior. Usamos tecnologías como React JS, Expo (modo web), Tailwind, React Navigation, entre otras. Me encargué de implementar varias secciones del menú, pantallas y funcionalidades de inicio de sesión y registro, descarga de archivos y componentes visuales, adaptados a partir del diseño original. A lo largo del proyecto también profundicé en diseño responsive, asegurando una experiencia funcional en diferentes dispositivos.",
     technologies: ["React JS", "Expo", "Tailwind", "React Query"],
     image: "/Music Prism.png",
-    liveUrl: "https://musicprism.vercel.app/",
+    liveUrl: "https://musicprism.app/",
     reflection: "Este proyecto representó un salto enorme en mi formación. Nunca antes había trabajado en algo pensado para adaptarse a móviles, así que fue un gran desafío entender cómo diseñar y desarrollar en función de múltiples tamaños de pantalla. También fue la primera vez que participé en un equipo de trabajo más organizado, lo que me ayudó a incorporar herramientas, prácticas y flujos nuevos. Me sentí muy cómoda saliendo de mi zona de confort, gané seguridad técnica y aprendí a resolver problemas de forma más estructurada. Estoy muy contenta con lo que logramos y con ganas de seguir aprendiendo a medida que el proyecto crece.",
   }
 ]
 
 export function ProjectsSection() {
+  const { t } = useLanguage()
+
   return (
     <section id="proyectos" className="py-20 bg-gradient-to-br from-gray-50 via-green-50/20 to-gray-50">
       <div className="container mx-auto px-4">
@@ -53,10 +56,10 @@ export function ProjectsSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-light mb-6 text-gray-900">
-            Mis Proyectos
+            {t('projects.title')}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Una selección de proyectos que reflejan mi pasión por el desarrollo web y mi crecimiento profesional.
+            {t('projects.description')}
           </p>
         </motion.div>
 

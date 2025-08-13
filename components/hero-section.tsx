@@ -3,10 +3,12 @@
 import { ArrowDown, Gitlab, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { config } from "@/lib/config"
 import { contactConfig } from "@/lib/contact-config"
+import { useLanguage } from '@/contexts/language-context'
 
 export function HeroSection() {
+  const { t } = useLanguage()
+
   const scrollToProjects = () => {
     const element = document.getElementById("proyectos")
     if (element) {
@@ -46,9 +48,9 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto">
           <motion.div className="mb-12" variants={itemVariants}>
             <motion.div
-              className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-green-600 m-4"
-              whileHover={{ scale: 1.3}}
-              transition={{ duration: 0.5 }}
+              className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-green-200"
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              transition={{ duration: 0.3 }}
             >
               <img
                 src="/Roxha.png"
@@ -58,20 +60,19 @@ export function HeroSection() {
             </motion.div>
             
             <motion.h1 
-              className="text-4xl md:text-6xl font-light mb-6 mt-6 text-gray-900"
+              className="text-4xl md:text-6xl font-light mb-6 text-gray-900"
               variants={itemVariants}
             >
-              <span className="block">Desarrolladora</span>
-              <span className="block font-medium text-green-700">Frontend</span>
-              <span className="block text-gray-600">Junior</span>
+              <span className="block">{t('hero.title.developer')}</span>
+              <span className="block font-medium text-green-700">{t('hero.title.frontend')}</span>
+            
             </motion.h1>
             
             <motion.p 
               className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed"
               variants={itemVariants}
             >
-              Transformo ideas en experiencias digitales únicas. Especializada en desarrollo web moderno con pasión por
-              el diseño y la innovación.
+              {t('hero.description')}
             </motion.p>
           </motion.div>
 
@@ -85,7 +86,7 @@ export function HeroSection() {
                 size="lg"
                 className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-md transition-colors duration-300"
               >
-                Ver Proyectos
+                {t('hero.viewProjects')}
               </Button>
             </motion.div>
             

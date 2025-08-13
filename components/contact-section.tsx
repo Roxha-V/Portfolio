@@ -14,34 +14,36 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { contactConfig } from "@/lib/contact-config"
-
-const contactSchema = yup.object({
-  name: yup
-    .string()
-    .required("El nombre es requerido")
-    .min(2, "El nombre debe tener al menos 2 caracteres")
-    .max(50, "El nombre no puede tener más de 50 caracteres"),
-  email: yup
-    .string()
-    .required("El correo electrónico es requerido")
-    .email("Por favor ingresa un correo electrónico válido"),
-  subject: yup
-    .string()
-    .required("El asunto es requerido")
-    .min(5, "El asunto debe tener al menos 5 caracteres")
-    .max(100, "El asunto no puede tener más de 100 caracteres"),
-  message: yup
-    .string()
-    .required("El mensaje es requerido")
-    .min(10, "El mensaje debe tener al menos 10 caracteres")
-    .max(1000, "El mensaje no puede tener más de 1000 caracteres"),
-})
-
-type ContactFormData = yup.InferType<typeof contactSchema>
+import { useLanguage } from '@/contexts/language-context'
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { toast } = useToast()
+  const { t } = useLanguage()
+
+  const contactSchema = yup.object({
+    name: yup
+      .string()
+      .required(t("contact.validation.nameRequired"))
+      .min(2, t("contact.validation.nameMin"))
+      .max(50, t("contact.validation.nameMax")),
+    email: yup
+      .string()
+      .required(t("contact.validation.emailRequired"))
+      .email(t("contact.validation.emailInvalid")),
+    subject: yup
+      .string()
+      .required(t("contact.validation.subjectRequired"))
+      .min(5, t("contact.validation.subjectMin"))
+      .max(100, t("contact.validation.subjectMax")),
+    message: yup
+      .string()
+      .required(t("contact.validation.messageRequired"))
+      .min(10, t("contact.validation.messageMin"))
+      .max(1000, t("contact.validation.messageMax")),
+  })
+
+  type ContactFormData = yup.InferType<typeof contactSchema>
 
   const {
     register,
@@ -63,15 +65,15 @@ export function ContactSection() {
       window.open(whatsappUrl, '_blank')
       
       toast({
-        title: "¡Redirigiendo a WhatsApp!",
-        description: "Se abrirá WhatsApp para enviar tu mensaje.",
+        title: t("contact.form.redirecting"),
+        description: t("contact.form.redirectingDescription"),
       })
       
       reset()
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Hubo un problema al abrir WhatsApp. Por favor intenta nuevamente.",
+        title: t("contact.form.error"),
+        description: t("contact.form.errorDescription"),
         variant: "destructive",
       })
     } finally {
@@ -111,10 +113,10 @@ export function ContactSection() {
       >
         <motion.div className="text-center mb-16" variants={itemVariants}>
           <h2 className="text-4xl md:text-5xl font-light mb-6 text-gray-900">
-            Hablemos
+            {t('contact.title')}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            ¿Tienes un proyecto en mente? Me encantaría escuchar tus ideas y colaborar contigo.
+            {t('contact.description')}
           </p>
         </motion.div>
 
@@ -122,7 +124,7 @@ export function ContactSection() {
           {/* Información de contacto */}
           <motion.div className="space-y-8" variants={containerVariants}>
             <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-medium text-gray-900 mb-6">Información de Contacto</h3>
+              <h3 className="text-2xl font-medium text-gray-900 mb-6">{t('contact.contactInfo')}</h3>
               <div className="space-y-4">
                 <motion.div 
                   className="flex items-center space-x-4 p-4 rounded-lg bg-green-50 hover:bg-green-100 transition-colors duration-300"
@@ -133,7 +135,7 @@ export function ContactSection() {
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Email</p>
+                    <p className="font-medium text-gray-900">{t('contact.email')}</p>
                     <p className="text-gray-600">{contactConfig.email}</p>
                   </div>
                 </motion.div>
@@ -147,7 +149,7 @@ export function ContactSection() {
                     <Phone className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Teléfono</p>
+                    <p className="font-medium text-gray-900">{t('contact.phone')}</p>
                     <p className="text-gray-600">{contactConfig.phone}</p>
                   </div>
                 </motion.div>
@@ -161,7 +163,7 @@ export function ContactSection() {
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Ubicación</p>
+                    <p className="font-medium text-gray-900">{t('contact.location')}</p>
                     <p className="text-gray-600">{contactConfig.location}</p>
                   </div>
                 </motion.div>
@@ -174,19 +176,19 @@ export function ContactSection() {
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.2 }}
             >
-              <h4 className="font-medium text-gray-900 mb-3">¿Por qué trabajar conmigo?</h4>
+              <h4 className="font-medium text-gray-900 mb-3">{t('contact.whyWorkWithMe')}</h4>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-green-700 rounded-full mr-3"></span>
-                  Desarrollo web moderno y escalable
+                  {t('contact.reasons.modern')}
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-green-700 rounded-full mr-3"></span>
-                  Diseño centrado en el usuario
+                  {t('contact.reasons.userCentered')}
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-green-700 rounded-full mr-3"></span>
-                  Comunicación clara y constante
+                  {t('contact.reasons.communication')}
                 </li>
               </ul>
             </motion.div>
@@ -196,30 +198,30 @@ export function ContactSection() {
           <motion.div variants={itemVariants}>
             <Card className="shadow-sm border border-gray-200">
               <CardHeader>
-                <CardTitle className="text-2xl font-medium text-gray-900">Envíame un mensaje</CardTitle>
+                <CardTitle className="text-2xl font-medium text-gray-900">{t('contact.form.title')}</CardTitle>
                 <CardDescription>
-                  Completa el formulario y me pondré en contacto contigo lo antes posible.
+                  {t('contact.form.description')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Nombre *</Label>
+                      <Label htmlFor="name">{t('contact.form.name')}</Label>
                       <Input
                         id="name"
                         {...register("name")}
                         className={`border-gray-300 focus:border-green-700 focus:ring-green-700 ${
                           errors.name ? "border-red-500" : ""
                         }`}
-                        placeholder="Tu nombre completo"
+                        placeholder={t('contact.form.namePlaceholder')}
                       />
                       {errors.name && (
                         <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
                       )}
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Correo Electrónico *</Label>
+                      <Label htmlFor="email">{t('contact.form.email')}</Label>
                       <Input
                         id="email"
                         type="email"
@@ -227,7 +229,7 @@ export function ContactSection() {
                         className={`border-gray-300 focus:border-green-700 focus:ring-green-700 ${
                           errors.email ? "border-red-500" : ""
                         }`}
-                        placeholder="tu@email.com"
+                        placeholder={t('contact.form.emailPlaceholder')}
                       />
                       {errors.email && (
                         <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
@@ -236,14 +238,14 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Asunto *</Label>
+                    <Label htmlFor="subject">{t('contact.form.subject')}</Label>
                     <Input
                       id="subject"
                       {...register("subject")}
                       className={`border-gray-300 focus:border-green-700 focus:ring-green-700 ${
                         errors.subject ? "border-red-500" : ""
                       }`}
-                      placeholder="¿De qué quieres hablar?"
+                      placeholder={t('contact.form.subjectPlaceholder')}
                     />
                     {errors.subject && (
                       <p className="text-sm text-red-500 mt-1">{errors.subject.message}</p>
@@ -251,7 +253,7 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">Mensaje *</Label>
+                    <Label htmlFor="message">{t('contact.form.message')}</Label>
                     <Textarea
                       id="message"
                       {...register("message")}
@@ -259,7 +261,7 @@ export function ContactSection() {
                       className={`border-gray-300 focus:border-green-700 focus:ring-green-700 resize-none ${
                         errors.message ? "border-red-500" : ""
                       }`}
-                      placeholder="Cuéntame sobre tu proyecto o idea..."
+                      placeholder={t('contact.form.messagePlaceholder')}
                     />
                     {errors.message && (
                       <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>
@@ -275,12 +277,12 @@ export function ContactSection() {
                       {isSubmitting ? (
                         <div className="flex items-center justify-center">
                           <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Abriendo WhatsApp...
+                          {t('contact.form.openingWhatsApp')}
                         </div>
                       ) : (
                         <>
                           <Send className="h-5 w-5 mr-2" />
-                          Enviar por WhatsApp
+                          {t('contact.form.sendWhatsApp')}
                         </>
                       )}
                     </Button>

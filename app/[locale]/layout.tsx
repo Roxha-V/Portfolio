@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
-import './globals.css'
-import { LanguageProvider } from '@/contexts/language-context'
+import '../globals.css'
 
 export const metadata: Metadata = {
   title: 'RX-Dev - Portfolio',
-  description: 'Roxha Valverde - Desarrolladora Frontend',
+  description: 'Roxha Valverde - Desarrolladora Frontend Junior',
   icons: {
     icon: [
       {
@@ -20,18 +19,22 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
+  params: { locale }
 }: {
   children: React.ReactNode
+  params: { locale: string }
 }) {
+  const messages = await getMessages()
+
   return (
-    <html lang="es">
+    <html lang={locale}>
       <body suppressHydrationWarning={true}>
-        <LanguageProvider>
+        <NextIntlClientProvider messages={messages}>
           {children}
-        </LanguageProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
-}
+} 

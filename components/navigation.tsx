@@ -4,11 +4,13 @@ import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { contactConfig } from "@/lib/contact-config"
+import { useLanguage } from '@/contexts/language-context'
+import { LanguageSwitcher } from './language-switcher'
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("inicio")
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,9 +44,9 @@ export function Navigation() {
   }
 
   const navItems = [
-    { id: "inicio", label: "Inicio" },
-    { id: "proyectos", label: "Proyectos" },
-    { id: "contacto", label: "Contacto" },
+    { id: "inicio", label: t('navigation.home') },
+    { id: "proyectos", label: t('navigation.projects') },
+    { id: "contacto", label: t('navigation.contact') },
   ]
 
   return (
@@ -56,11 +58,11 @@ export function Navigation() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            Roxha Dev
+            RX-Dev
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <motion.button
                 key={item.id}
@@ -75,14 +77,18 @@ export function Navigation() {
                 {item.label}
               </motion.button>
             ))}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Navigation Button */}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </motion.div>
+          <div className="md:hidden flex items-center space-x-4">
+            <LanguageSwitcher />
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </motion.div>
+          </div>
         </div>
 
         {/* Mobile Navigation Menu */}
