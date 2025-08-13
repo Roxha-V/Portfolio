@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import '../globals.css'
 
 export const metadata: Metadata = {
-  title: 'RX-Dev - Portfolio',
-  description: 'Roxha Valverde - Desarrolladora Frontend Junior',
+  title: 'Roxha Dev - Portfolio',
+  description: 'Rocio Valverde - Desarrolladora Frontend - Portfolio',
   icons: {
     icon: [
       {
@@ -15,7 +15,6 @@ export const metadata: Metadata = {
         sizes: 'any',
       }
     ],
-    apple: '/apple-touch-icon.svg',
   },
 }
 
@@ -31,9 +30,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body suppressHydrationWarning={true}>
-        <NextIntlClientProvider messages={messages}>
+    
           {children}
-        </NextIntlClientProvider>
+
       </body>
     </html>
   )
